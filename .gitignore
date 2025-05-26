@@ -6,6 +6,7 @@
 out
 java.hprof.txt
 .DS_Store
+**/target
 
 # ref
 reference-code/**
