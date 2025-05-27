@@ -5,7 +5,7 @@ package org.jalontsui.datastructures.list;
  * @Date 0:36 2025/5/27
  **/
 
-public interface MyArrayList<T> extends Iterable<T> {
+public interface MyList<T> extends Iterable<T> {
 
     /**
      * 清空list
@@ -38,13 +38,6 @@ public interface MyArrayList<T> extends Iterable<T> {
      * @return 若该索引已经有值则返回久的值
      */
     T set(int index, T newVal);
-
-    /**
-     * list末端添加元素
-     * @param item 添加元素
-     * @return 添加结果
-     */
-    boolean add(T item);
 
     /**
      * 指定位置插入元素
