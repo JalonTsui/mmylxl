@@ -9,6 +9,8 @@ import java.util.Iterator;
 /*
  * @author JalonTsui
  * @Date 23:08 2025/5/28
+ *
+ * 关键在于addBefore和getNode的实现与运用
  **/
 
 public class MyLinkedList<T> implements MyList<T> {
@@ -52,17 +54,25 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        return getNode(index).getData();
     }
 
     @Override
     public T set(int index, T newVal) {
-        return null;
+        Node<T> node = getNode(index);
+        T oldVal = node.getData();
+        node.setData(newVal);
+        return oldVal;
+    }
+
+    public boolean add(T item) {
+        add(size(), item);
+        return true;
     }
 
     @Override
     public void add(int index, T item) {
-
+        addBefore(getNode(index, 0, size()), item);
     }
 
     /**
@@ -118,7 +128,15 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        return remove(getNode(index));
+    }
+
+    private T remove(Node<T> node) {
+        node.getPrev().setNext(node.getNext());
+        node.getNext().setPrev(node.getPrev());
+        innerSize--;
+        modCount++;
+        return node.getData();
     }
 
     @Override
