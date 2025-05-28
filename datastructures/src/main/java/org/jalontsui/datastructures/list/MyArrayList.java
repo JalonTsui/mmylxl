@@ -1,6 +1,4 @@
-package org.jalontsui.datastructures.list.impl;
-
-import org.jalontsui.datastructures.list.MyList;
+package org.jalontsui.datastructures.list;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

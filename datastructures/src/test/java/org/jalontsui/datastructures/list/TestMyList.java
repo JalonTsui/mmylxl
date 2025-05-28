@@ -1,6 +1,5 @@
 package org.jalontsui.datastructures.list;
 
-import org.jalontsui.datastructures.list.impl.MyArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
