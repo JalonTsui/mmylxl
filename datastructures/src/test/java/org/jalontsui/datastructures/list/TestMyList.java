@@ -3,6 +3,8 @@ package org.jalontsui.datastructures.list;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+
 /*
  * @author JalonTsui
  * @Date 0:58 2025/5/28
@@ -22,5 +24,21 @@ public class TestMyList {
         for (Integer item : list) {
             Assertions.assertEquals(item, ints[index++]);
         }
+    }
+
+    @Test
+    public void testLinkedList() {
+        MyLinkedList<Integer> list = new MyLinkedList<>();
+        for (int i = 0; i < 5; i++) {
+            list.add(i);
+        }
+        Iterator<Integer> iterator = list.iterator();
+        int index = 0;
+        while (iterator.hasNext()) {
+            Integer next = iterator.next();
+            Assertions.assertEquals(index++, next);
+            iterator.remove();
+        }
+        Assertions.assertTrue(list.isEmpty());
     }
 }

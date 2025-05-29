@@ -3,6 +3,8 @@ package org.jalontsui.datastructures.list;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -85,7 +87,8 @@ public class MyLinkedList<T> implements MyList<T> {
      */
     private void addBefore(Node<T> targetNode, T val) {
         Node<T> prevNode = targetNode.getPrev();
-        Node<T> newNode = new Node<>(val, prevNode, null);
+        Node<T> newNode = new Node<>(val, prevNode, targetNode);
+        targetNode.setPrev(newNode);
         prevNode.setNext(newNode);
         innerSize++;
         modCount++;
