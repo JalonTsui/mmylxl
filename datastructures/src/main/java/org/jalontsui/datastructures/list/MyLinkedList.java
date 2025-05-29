@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /*
  * @author JalonTsui
@@ -141,7 +143,55 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new MyLinkedListIterator();
+    }
+
+    /**
+     * iterator的基本原则
+     * 1. 在迭代的循环过程中要保证list不会被处iterator的remove方法以外的方法修改
+     */
+    private class MyLinkedListIterator implements Iterator<T> {
+
+        private Node<T> current = beginMarker.getNext();
+        private int expectedModCount = modCount; // 保证迭代器在迭代过程中，list没有被iterator中remove方法以外的方法改变
+        private boolean okToRemove = false; // 防止通过next方法拿到对象后二次调用remove
+
+        @Override
+        public boolean hasNext() {
+            return current != endMarker;
+        }
+
+        @Override
+        public T next() {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            T nextItem = current.getData();
+            current = current.getNext();
+            okToRemove = true;
+            return nextItem;
+        }
+
+        @Override
+        public void remove() {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+            if (!okToRemove) {
+                throw new IllegalStateException();
+            }
+            /**
+             * 1. 调用next后，current已经变成了要remove元素的下一个节点
+             * 2. MyLinkedList的remove方法会改变modCount，所以expectedModCount也要自增
+             * 3. iterator的remove方法调用后okToRemove要置为false，保证remove方法只能执行一次
+             */
+            MyLinkedList.this.remove(current.getPrev());
+            expectedModCount++;
+            okToRemove = false;
+        }
     }
 
     @Data
