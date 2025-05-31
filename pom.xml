@@ -28,6 +28,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <springboot.version>3.4.2</springboot.version>
         <lombok.version>1.18.30</lombok.version>
+        <slf4j.version>2.0.13</slf4j.version>
+        <logback.version>1.5.16</logback.version>
         <junit.version>5.11.4</junit.version>
     </properties>
 
@@ -45,6 +47,19 @@
                 <artifactId>junit-jupiter-api</artifactId>
                 <version>5.11.4</version>
                 <scope>${junit.version}</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

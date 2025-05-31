@@ -28,11 +28,11 @@ import java.util.Set;
  * 3. Selector
  */
 
-public class SingleEchoServerReactor implements Runnable {
+public class SingleThreadEchoServerReactor implements Runnable {
 
     public static void main(String[] args) {
         try {
-            new Thread(new SingleEchoServerReactor()).start();
+            new Thread(new SingleThreadEchoServerReactor()).start();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -41,7 +41,7 @@ public class SingleEchoServerReactor implements Runnable {
     private Selector selector;
     private ServerSocketChannel serverSocket;
 
-    SingleEchoServerReactor() throws IOException {
+    SingleThreadEchoServerReactor() throws IOException {
         selector = Selector.open();
         serverSocket = ServerSocketChannel.open();
         serverSocket.configureBlocking(false);

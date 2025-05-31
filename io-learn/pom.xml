@@ -21,6 +21,23 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <!--problem-->
+        <!--SLF4J(W): No SLF4J providers were found.
+        SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+        SLF4J(W): See https://www.slf4j.org/codes.html#noProviders-->
+        <!--resolve-->
+        <!--SLF4J（Simple Logging Facade for Java）是一个日志门面，
+        它本身并不提供日志实现，而是需要一个具体的日志框架（如Logback、Log4j等）来完成实际的日志记录功能。
+        这个警告信息表明在你的应用程序的类路径（classpath）中没有找到任何SLF4J的日志提供者（binding）。
+        因此，SLF4J默认使用了一个无操作（NOP）的日志实现，这意味着你的日志调用不会产生任何输出。-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
