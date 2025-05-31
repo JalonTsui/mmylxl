@@ -20,6 +20,7 @@
         <module>datastructures</module>
         <module>reference-code</module>
         <module>login-demo</module>
+        <module>io-learn</module>
     </modules>
 
     <properties>

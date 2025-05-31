@@ -1,9 +1,6 @@
 package org.jalontsui.datastructures.list;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.ConcurrentModificationException;
@@ -197,7 +194,10 @@ public class MyLinkedList<T> implements MyList<T> {
         }
     }
 
-    @Data
+    // Method threw 'java.lang.StackOverflowError' exception. Cannot evaluate org.jalontsui.datastructures.list.MyLinkedList$Node.toString()
+    // 内部类里面使用@Data注解实现类的toString方法，会导致在debugger执行时idea重复嵌套toString的情况(因为一个Node下面还有Node无限嵌套了)，造成debugger卡顿甚至崩溃的情况
+    @Getter
+    @Setter
     @AllArgsConstructor
     @NoArgsConstructor
     private static class Node<T> {
