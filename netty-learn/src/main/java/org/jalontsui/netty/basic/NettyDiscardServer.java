@@ -57,9 +57,19 @@ public class NettyDiscardServer {
             });
             // 6. 绑定服务器
             // ps: 关于Future异步回调或者同步阻塞可以参考书籍《Java高并发核心编程　卷2：多线程、锁、JMM、JUC、高并发设计模式》
+            // 简单来说，也是创建了一个线程，然后可以通过Future来判断线程的执行状态，这里调用sync()可以理解为等待，直到绑定完成
             ChannelFuture channelFuture = b.bind().sync();
+
+            // 下面这个写法也是一样的效果
+            // ChannelFuture channelFuture = b.bind();
+            // while (!channelFuture.isDone()) {
+            //     log.info("waiting...");
+            // }
+
             log.info("服务启动成功，监听端口：{}", channelFuture.channel().localAddress());
-            // 7. 等待通道关闭的异步任务结束
+            // 7. 等待通道关闭的异步任务结束,对于服务器来说就是 NioServerSocketChannel, 调用其close方法即可关闭
+            Channel channel = channelFuture.channel();
+            log.info("{}", channel.getClass());
             ChannelFuture closeFuture = channelFuture.channel().closeFuture();
             closeFuture.sync();
         } catch (InterruptedException e) {
