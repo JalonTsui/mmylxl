@@ -21,6 +21,7 @@
         <module>reference-code</module>
         <module>login-demo</module>
         <module>io-learn</module>
+        <module>netty-learn</module>
     </modules>
 
     <properties>
@@ -31,6 +32,7 @@
         <slf4j.version>2.0.13</slf4j.version>
         <logback.version>1.5.16</logback.version>
         <junit.version>5.11.4</junit.version>
+        <netty.version>4.2.0.Final</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -60,6 +62,12 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
                 <scope>compile</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
