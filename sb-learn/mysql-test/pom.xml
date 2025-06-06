@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <mybatis.starter.version>3.0.1</mybatis.starter.version>
+        <mybatis.starter.version>3.0.4</mybatis.starter.version>
         <mysql.version>8.0.33</mysql.version>
     </properties>
 
@@ -25,18 +25,18 @@
             <version>${mybatis.starter.version}</version>
             <!-- https://github.com/spring-cloud/spring-cloud-openfeign/issues/950 -->
             <!-- mybatis-spring 需要适配新版本 -->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mybatis</groupId>
-                    <artifactId>mybatis-spring</artifactId>
-                </exclusion>
-            </exclusions>
+            <!--<exclusions>-->
+            <!--    <exclusion>-->
+            <!--        <groupId>org.mybatis</groupId>-->
+            <!--        <artifactId>mybatis-spring</artifactId>-->
+            <!--    </exclusion>-->
+            <!--</exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>3.0.3</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--    <groupId>org.mybatis</groupId>-->
+        <!--    <artifactId>mybatis-spring</artifactId>-->
+        <!--    <version>3.0.3</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

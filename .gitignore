@@ -8,6 +8,7 @@ java.hprof.txt
 .DS_Store
 **/target
 log/
+logs/
 
 # ref
 reference-code/**
