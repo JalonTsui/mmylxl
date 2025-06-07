@@ -15,4 +15,12 @@
     <select id="selectList" resultType="org.jalontsui.sb.mysql.entity.po.User">
         select * from t_user;
     </select>
+
+    <update id="updateUser">
+        update t_user set user = #{user.user} where id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        delete from t_user where id = #{id}
+    </delete>
 </mapper>

@@ -10,4 +10,8 @@ public interface UserService {
     int insertUser(User user);
 
     List<User> selectUser();
+
+    int updateUser(int id, User user);
+
+    int deleteUser(int id);
 }

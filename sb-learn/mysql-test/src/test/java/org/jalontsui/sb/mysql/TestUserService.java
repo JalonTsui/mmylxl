@@ -44,4 +44,16 @@ public class TestUserService {
         List<User> users = userService.selectUser();
         log.info("{}", users);
     }
+
+    @Test
+    public void testUpdateUser() {
+        User user = new User();
+        user.setUser("hello");
+        userService.updateUser(1, user);
+    }
+
+    @Test
+    public void testDeleteUser() {
+        userService.deleteUser(2);
+    }
 }
