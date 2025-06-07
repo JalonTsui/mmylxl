@@ -21,4 +21,5 @@ public class User {
     private LocalDateTime updateTime;
     private Integer sex;
     private Integer age;
+    private Integer id;
 }

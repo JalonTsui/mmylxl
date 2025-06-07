@@ -39,5 +39,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.deleteUser(id);
     }
 
+    @Override
+    public int insertAndReturnKey(User user) {
+        return userMapper.insertAndReturnKey(user);
+    }
+
 
 }

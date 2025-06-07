@@ -56,4 +56,20 @@ public class TestUserService {
     public void testDeleteUser() {
         userService.deleteUser(2);
     }
+
+    @Test
+    public void testInsertAndReturnKey() {
+        User user = new User();
+        user.setUser("jack");
+        user.setAge(33);
+        user.setSex(0);
+        user.setRole("user");
+        LocalDateTime date = LocalDateTime.now();
+        user.setCreateTime(date);
+        user.setUpdateTime(date);
+        log.info("before insert user: {}", user);
+        userService.insertAndReturnKey(user);
+        // mapper.xml开启了主键返回自动生成,所以插入后的user的主键值会自动注入到user对象里面
+        log.info("after insert user: {}", user);
+    }
 }

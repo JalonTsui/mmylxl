@@ -14,4 +14,6 @@ public interface UserService {
     int updateUser(int id, User user);
 
     int deleteUser(int id);
+
+    int insertAndReturnKey(User user);
 }

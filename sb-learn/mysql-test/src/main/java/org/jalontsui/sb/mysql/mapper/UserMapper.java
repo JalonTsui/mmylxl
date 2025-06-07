@@ -18,4 +18,6 @@ public interface UserMapper {
     Integer updateUser(@Param("id") int id, @Param("user") User user);
 
     Integer deleteUser(@Param("id") int id);
+
+    Integer insertAndReturnKey(User user);
 }
