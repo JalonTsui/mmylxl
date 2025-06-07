@@ -64,6 +64,7 @@ public class TestUserService {
         user.setAge(33);
         user.setSex(0);
         user.setRole("user");
+        user.setDepId(0);
         LocalDateTime date = LocalDateTime.now();
         user.setCreateTime(date);
         user.setUpdateTime(date);

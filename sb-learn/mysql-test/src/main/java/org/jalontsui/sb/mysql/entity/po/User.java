@@ -22,4 +22,5 @@ public class User {
     private Integer sex;
     private Integer age;
     private Integer id;
+    private Integer depId;
 }

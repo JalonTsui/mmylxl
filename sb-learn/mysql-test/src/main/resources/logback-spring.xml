@@ -152,13 +152,17 @@
 
     <logger name="com.zaxxer.hikari" level="error"/>
     <logger name="org.jalontsui.sb.mysql.util.LogBackImpl" level="debug"/>
-    <!--<logger name="org.apache.ibatis.logging.slf4j.Slf4jImpl" level="debug"/>-->
-    <!--     4.1 开发环境:打印控制台-->
-    <!-- 用于在Spring Boot应用程序中配置日志记录的标签。在这个标签中，name="dev"表示这个配置文件只在dev环境中生效，<logger name="com.myClass.controller" level="debug"/>表示为com.myClass.controller（根据业务修改）这个包下的类配置日志输出级别为debug -->
-    <!--<springProfile name="dev">-->
-    <!--    <logger name="com.myClass.controller" level="debug"/>-->
-    <!--</springProfile>-->
-    <!-- 用于配置日志输出的标签。在这个标签中，level="info"表示日志输出级别为info，<appender-ref ref="CONSOLE"/>、<appender-ref ref="DEBUG_FILE"/>、<appender-ref ref="INFO_FILE"/>、<appender-ref ref="WARN_FILE"/>、<appender-ref ref="ERROR_FILE"/>表示将日志输出到不同的appender中，分别为控制台、debug文件、info文件、warn文件和error文件 -->
+
+    <!-- mybatis打印日志级别，trace表示打印全部集合（包含查询结果），debug只打印sql语句及参数 -->
+    <!-- 实验中trace没有打印结果集，官网是说trace打印结果级的,也可以用自定义的LOG打印 -->
+    <logger name="org.jalontsui.sb.mysql.mapper" level="error"/>
+
+    <!-- 在springboot的配置文件中指定环境，即可触发logger的生效条件 -->
+    <springProfile name="dev">
+        <logger name="org.jalontsui.sb.mysql.mapper" level="debug"/>
+    </springProfile>
+
+    <!-- 全局的log日志级别，以及需要用到的appender -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG_FILE"/>

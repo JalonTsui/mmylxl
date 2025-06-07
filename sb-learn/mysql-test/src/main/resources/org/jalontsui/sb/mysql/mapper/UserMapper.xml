@@ -26,7 +26,7 @@
 
     <!-- 插入后返回主键值，只对自动生成主键的数据库有效(MySQL...) -->
     <insert id="insertAndReturnKey" parameterType="org.jalontsui.sb.mysql.entity.po.User" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user (user, role, create_time, update_time, sex, age)
-        values (#{user}, #{role}, #{createTime}, #{updateTime}, #{sex}, #{age})
+        insert into t_user (user, role, create_time, update_time, sex, age, dep_id)
+        values (#{user}, #{role}, #{createTime}, #{updateTime}, #{sex}, #{age}, #{depId})
     </insert>
 </mapper>
