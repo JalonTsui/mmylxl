@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jalontsui.sb.mysql.mapper.DepartmentMapper">
+    <!-- 使用sql标签定义代码可复用的代码片段,还可以定义变量，在使用时通过property传入 -->
+    <sql id="varFields">${alias}.dep_id, dep_name, create_time, update_time</sql>
+
+    <sql id="normalFields">dep_id, dep_name, create_time, update_time</sql>
+
+    <!-- 使用include引用sql标签的字段，并通过property传参 -->
+    <select id="selectAll" resultType="org.jalontsui.sb.mysql.entity.po.Department">
+        select
+        <include refid="varFields">
+            <property name="alias" value="d"/>
+        </include>
+        from t_department d
+    </select>
+</mapper>
