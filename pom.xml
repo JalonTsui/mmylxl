@@ -23,6 +23,9 @@
         <module>io-learn</module>
         <module>netty-learn</module>
         <module>sb-learn</module>
+        <module>cloud</module>
+        <module>cloud/cloud-dep</module>
+        <!--<module>desire-pattern</module>-->
     </modules>
 
     <properties>
