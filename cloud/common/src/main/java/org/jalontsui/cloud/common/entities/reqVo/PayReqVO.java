@@ -1,4 +1,4 @@
-package org.jalontsui.cloud.entities.reqVo;
+package org.jalontsui.cloud.common.entities.reqVo;
 
 import lombok.Data;
 

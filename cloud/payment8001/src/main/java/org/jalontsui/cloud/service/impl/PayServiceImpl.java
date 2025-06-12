@@ -1,9 +1,11 @@
 package org.jalontsui.cloud.service.impl;
 
 import jakarta.annotation.Resource;
-import org.jalontsui.cloud.entities.po.PayPO;
+import org.jalontsui.cloud.common.entities.po.PayPO;
+import org.jalontsui.cloud.common.entities.respVo.PayRespVO;
 import org.jalontsui.cloud.mapper.PayMapper;
 import org.jalontsui.cloud.service.PayService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +31,14 @@ public class PayServiceImpl implements PayService {
     }
 
     @Override
-    public PayPO getById(Integer id) {
-        return payMapper.selectByPrimaryKey(id);
+    public PayRespVO getById(Integer id) {
+        PayPO payPO = payMapper.selectByPrimaryKey(id);
+        if (payPO == null) {
+            return null;
+        }
+        PayRespVO payRespVO = new PayRespVO();
+        BeanUtils.copyProperties(payPO, payRespVO);
+        return payRespVO;
     }
 
     @Override

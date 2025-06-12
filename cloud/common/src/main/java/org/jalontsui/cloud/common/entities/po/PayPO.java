@@ -1,4 +1,4 @@
-package org.jalontsui.cloud.entities.po;
+package org.jalontsui.cloud.common.entities.po;
 
 import java.math.BigDecimal;
 import java.util.Date;
