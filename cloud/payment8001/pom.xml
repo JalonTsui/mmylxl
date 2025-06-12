@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <!--SpringCloud consul discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>
+        <!-- 引入自定义common模块 -->
         <dependency>
             <groupId>org.jalontsui</groupId>
             <artifactId>common</artifactId>

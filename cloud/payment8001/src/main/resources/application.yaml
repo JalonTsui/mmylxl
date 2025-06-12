@@ -12,7 +12,14 @@ spring:
     url: jdbc:mysql://192.168.1.101/cloud-test?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
     username: root
     password: 123456
-
+  cloud:
+    consul:
+      host: 192.168.1.101
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        hostname: 192.168.1.1
+        port: 8001
 # ========================mybatis===================
 mybatis:
   mapper-locations: classpath:mapper/*.xml
