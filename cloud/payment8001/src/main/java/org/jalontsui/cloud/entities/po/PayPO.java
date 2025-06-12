@@ -1,4 +1,4 @@
-package org.jalontsui.cloud.entities;
+package org.jalontsui.cloud.entities.po;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 表注释：支付交易表
 */
 @Table(name = "t_pay")
-public class Pay {
+public class PayPO {
     @Id
     @GeneratedValue(generator = "JDBC")
     private Integer id;
