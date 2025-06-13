@@ -3,24 +3,13 @@ server:
 
 # ==========applicationName + druid-mysql8 driver===================
 spring:
-  application:
-    name: payment8001
-
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.1.101/cloud-test?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
     username: root
     password: 123456
-# consul
-  cloud:
-    consul:
-      host: 192.168.1.101
-      port: 8500
-      discovery:
-        service-name: ${spring.application.name}
-        hostname: 192.168.1.1
-        port: 8001
+
 # ========================mybatis===================
 mybatis:
   mapper-locations: classpath:mapper/*.xml

@@ -1,15 +1,2 @@
 server:
   port: 80
-
-spring:
-  application:
-    name: order80
-  cloud:
-    consul:
-      host: 192.168.1.101
-      port: 8500
-      discovery:
-        service-name: ${spring.application.name}
-        hostname: 192.168.1.1
-        port: 8001
-        prefer-ip-address: true
