@@ -25,4 +25,9 @@ public class OrderController {
     public ResultData getPayInfo(@PathVariable("id") Integer id) {
         return restTemplate.getForObject(PAY_URL + "/pay/get/" + id, ResultData.class);
     }
+
+    @GetMapping("/server/port")
+    public ResultData getServerPort() {
+        return restTemplate.getForObject(PAY_URL + "/consul/test/server", ResultData.class);
+    }
 }
