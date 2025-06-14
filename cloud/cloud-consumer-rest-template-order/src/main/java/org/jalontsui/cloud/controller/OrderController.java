@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class OrderController {
 
     // private static final String PAY_URL = "http://127.0.0.1:8001";
-    private static final String PAY_URL = "http://payment8001";
+    private static final String PAY_URL = "http://cloud-provider-payment";
     @Resource
     private RestTemplate restTemplate;
 

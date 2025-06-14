@@ -10,8 +10,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan("org.jalontsui.cloud.mapper")
 @EnableDiscoveryClient // 允许服务的注册与发现
 @RefreshScope // consul动态刷新配置
-public class Main8001 {
+public class PaymentApp {
     public static void main(String[] args) {
-        SpringApplication.run(Main8001.class, args);
+        SpringApplication.run(PaymentApp.class, args);
     }
 }

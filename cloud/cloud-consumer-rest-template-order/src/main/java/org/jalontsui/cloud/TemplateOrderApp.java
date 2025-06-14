@@ -8,8 +8,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RefreshScope // consul动态刷新配置
-public class Main80 {
+public class TemplateOrderApp {
     public static void main(String[] args) {
-        SpringApplication.run(Main80.class, args);
+        SpringApplication.run(TemplateOrderApp.class, args);
     }
 }
