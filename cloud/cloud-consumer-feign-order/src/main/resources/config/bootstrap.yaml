@@ -26,9 +26,13 @@ spring:
       # ---circuitbreaker 开启熔断---
       circuitbreaker:
         enabled: true
+        # 没搞懂
+        group:
+          enabled: true
 
 # ---resilience4j---
 resilience4j:
+  # 熔断配置
   circuitbreaker:
     configs:
       default:
@@ -44,4 +48,33 @@ resilience4j:
     instances:
       cloud-provider-payment:
         baseConfig: default
+  # 舱壁配置, 需要在 openfeign.circuitbreaker.group.enable = true 时才会生效
+  bulkhead:
+    configs:
+      default:
+        # 允许执行的最大并发数(为了测试写低一些)
+        max-concurrent-calls: 2
+        # 并发数达到上限后，阻塞线程的最长时间
+        max-wait-duration: 1s
+    instances:
+      cloud-provider-payment:
+        baseConfig: default
+  # 限流配置
+  rate-limiter:
+    configs:
+      default:
+        # 一个时间周期最大访问数
+        limit-for-period: 2
+        # 时间周期
+        limit-refresh-period: 1s
+        # 线程默认等待时间(不大懂)
+        timeout-duration: 1
+    instances:
+      cloud-provider-payment:
+        baseConfig: default
+  # 请求超时限制,超过20s则算请求失败
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 20s
 
