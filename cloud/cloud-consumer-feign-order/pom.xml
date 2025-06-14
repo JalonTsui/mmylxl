@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>org.jalontsui</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>cloud-common</artifactId>
             <version>${revision}</version>
         </dependency>
         <!--web + actuator-->

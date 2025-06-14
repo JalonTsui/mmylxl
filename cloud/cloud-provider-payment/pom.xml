@@ -34,7 +34,7 @@
         <!-- 引入自定义common模块 -->
         <dependency>
             <groupId>org.jalontsui</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>cloud-common</artifactId>
             <version>${revision}</version>
         </dependency>
         <!--SpringBoot通用依赖模块-->
