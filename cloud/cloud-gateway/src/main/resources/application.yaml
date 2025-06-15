@@ -1,0 +1,30 @@
+server:
+  port: 19999
+
+spring:
+  application:
+    name: cloud-gateway #以微服务注册进consul或nacos服务列表内
+  cloud:
+    # consul配置
+    consul:
+      host: 192.168.1.101
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
+        port: 19999
+        hostname: 192.168.1.1
+    # 网关配置
+    gateway:
+      routes:
+        # id: 路由id可以任意配置
+        # uri: 匹配后面提供服务的真实访问地址
+        # predicates: 断言，只匹配与配置路径相同的路由
+        - id: pay_route01
+          uri: http://localhost:8001
+          predicates:
+            - Path=/pay/gateway/get/**
+        - id: pay_route02
+          uri: http://localhost:8001
+          predicates:
+            - Path=/pay/gateway/info/**
