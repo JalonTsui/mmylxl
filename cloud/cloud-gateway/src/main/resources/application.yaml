@@ -18,13 +18,15 @@ spring:
     gateway:
       routes:
         # id: 路由id可以任意配置
-        # uri: 匹配后面提供服务的真实访问地址
+        # uri: 匹配后面提供服务的真实访问地址, 如果注册中心已经有微服务注册，直接使用 lb://微服务，（ld：load-balance）
         # predicates: 断言，只匹配与配置路径相同的路由
         - id: pay_route01
-          uri: http://localhost:8001
+          uri: lb://cloud-provider-payment
           predicates:
             - Path=/pay/gateway/get/**
+            - Cookie=aaa, ch.p
+            - Cookie=bbb, aaa
         - id: pay_route02
-          uri: http://localhost:8001
+          uri: lb://cloud-provider-payment
           predicates:
             - Path=/pay/gateway/info/**
