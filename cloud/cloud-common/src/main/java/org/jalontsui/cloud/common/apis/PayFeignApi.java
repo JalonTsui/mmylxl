@@ -1,5 +1,6 @@
 package org.jalontsui.cloud.common.apis;
 
+import cn.hutool.core.util.IdUtil;
 import org.jalontsui.cloud.common.entities.reqVo.PayReqVO;
 import org.jalontsui.cloud.common.entities.resp.ResultData;
 import org.jalontsui.cloud.common.entities.respVo.PayRespVO;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 配置openfeign接口，绑定注册到consul的微服务名字，调用服务时不需要再用restTemplate调用，改为接口注入调用
  * 把需要暴露出去的接口暴露出去即可
- *
+ * <p>
  * 进阶的配置使用，都是些application.yaml的配置项，查看官网使用即可
  */
 @FeignClient(value = "cloud-provider-payment")
@@ -31,4 +32,7 @@ public interface PayFeignApi {
 
     @GetMapping("/circuit/pay/{id}")
     ResultData<String> myCircuit(@PathVariable("id") Integer id);
+
+    @GetMapping(value = "/pay/micrometer/{id}")
+    ResultData<String> micrometerTest(@PathVariable("id") Integer id);
 }
