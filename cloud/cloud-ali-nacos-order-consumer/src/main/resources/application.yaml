@@ -1,0 +1,13 @@
+server:
+  port: 19981
+
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://192.168.1.101:8848
+#消费者将要去访问的微服务名称(nacos微服务提供者叫什么你写什么)
+service-url:
+  nacos-payment-service: http://nacos-payment-provider
